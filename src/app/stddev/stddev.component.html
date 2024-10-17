@@ -1,1 +1,22 @@
-<p>stddev works!</p>
+<section class="flex flex-col justify-center items-center p-10">
+    <table>
+        <thead>
+            <tr>
+                <th>Columna 1</th>
+                <th>Columna 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let valor of columna1; let i = index">
+                <td>{{ valor }}</td>
+                <td>{{ columna2[i] || "N/A" }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Media de Columna 1: {{ mediaColumna1 }}</p>
+    <p>Desviación Estándar de Columna 1: {{ stddevColumna1 }}</p>
+
+    <p>Media de Columna 2: {{ mediaColumna2 }}</p>
+    <p>Desviación Estándar de Columna 2: {{ stddevColumna2 }}</p>
+</section>

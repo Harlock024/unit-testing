@@ -19,7 +19,7 @@ describe("StddevComponent", () => {
 
     component.ngOnInit();
   });
-  it("should return stddev = 57.03 if input is [160, 591, 114, 229, 230, 270, 128, 1657, 624, 1503] ", () => {
+  it("should return stddev = 572.03 if input is [160, 591, 114, 229, 230, 270, 128, 1657, 624, 1503] ", () => {
     const expectedStddevColumna1 = 572.03;
 
     expect(component.stddevColumna1).toBe(expectedStddevColumna1);
