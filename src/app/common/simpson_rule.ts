@@ -1,12 +1,11 @@
-export function fx_2x(x: number) {
+export function twoX(x: number): number {
   return 2 * x;
 }
 
-export function fx_x2(x: number) {
+export function x2(x: number): number {
   return x * x;
 }
 
-export function fx_1_x(x: number) {
-  if (x === 0) throw new Error("Error");
+export function oneOverX(x: number): number {
   return 1 / x;
 }
