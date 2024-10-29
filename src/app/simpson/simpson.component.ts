@@ -1,27 +1,23 @@
 import { Component } from "@angular/core";
+import { SimpsonRule } from "../common/simpson_rule";
 
 @Component({
   selector: "app-simpson",
-  standalone: true,
-  imports: [],
+  templateUrl: "./simpson.component.html",
+  styleUrls: ["./simpson.component.css"],
 })
 export class SimpsonComponent {
-  simpson(
-    f: (x: number, dof: number) => number,
-    x0: number,
-    x1: number,
-    num_seg: number,
-    dof?: number,
-  ): number {
-    const h = (x1 - x0) / num_seg;
+  result1: number = 0;
+  result2: number = 0;
+  result3: number = 0;
 
-    let sum = f(x0, dof!) + f(x1, dof!);
+  constructor() {
+    this.calculateResults();
+  }
 
-    for (let i = 1; i < num_seg; i++) {
-      const x = x0 + i * h;
-
-      sum += (i % 2 === 0 ? 2 : 4) * f(x, dof!);
-    }
-    return (h / 3) * sum;
+  calculateResults(): void {
+    this.result1 = SimpsonRule.simpson(0, 4, 4, 0.0001, SimpsonRule.fx_2x);
+    this.result2 = SimpsonRule.simpson(0, 1, 4, 0.0001, SimpsonRule.fx_x2);
+    this.result3 = SimpsonRule.simpson(1, 4, 6, 0.001, SimpsonRule.fx_1_x);
   }
 }
