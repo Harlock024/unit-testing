@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { RouterOutlet } from "@angular/router";
 import { CommonModule } from "@angular/common";
+import { media } from "../media/media";
 import cols from "./data.json";
 import { calculateStdDev } from "./stddev";
 @Component({

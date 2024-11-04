@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { SimpsonRule } from "../common/simpson_rule";
 import { CommonModule } from "@angular/common";
+import { RouterModule } from "@angular/router";
 @Component({
   selector: "app-simpson",
   standalone: true,

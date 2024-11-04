@@ -27,17 +27,10 @@ export class MediaComponent implements OnInit {
     this.calcularMedias();
   }
   calcularMedias() {
-    if (this.columna1.length > 0) {
-      const sumaColumna1 = this.columna1.reduce((acc, valor) => acc + valor);
-      this.mediaColumna1 = sumaColumna1 / this.columna1.length;
-    }
-    if (this.columna2.length > 0) {
-      const sumaColumna2 = this.columna2.reduce((acc, valor) => acc + valor);
-      this.mediaColumna2 = sumaColumna2 / this.columna2.length;
-    }
+    this.mediaColumna1 = media(this.columna1.join(","));
+    this.mediaColumna2 = media(this.columna2.join(","));
   }
   media() {
     this.result = media(this.numbers);
-    console.log(this.result);
   }
 }

@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import { RouterOutlet, RouterLink } from "@angular/router";
 import { CommonModule } from "@angular/common";
-
 import { MediaComponent } from "../media/media.component";
 import { StddevComponent } from "../stddev/stddev.component";
 import { media } from "../media/media";

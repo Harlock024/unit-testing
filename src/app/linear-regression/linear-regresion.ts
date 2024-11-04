@@ -4,20 +4,8 @@ export function linearRegression(input: string): {
 } {
   const pairs = input.split(",").map((pair) => {
     const [x, y] = pair.trim().split(" ").map(Number);
-    if (isNaN(x) || isNaN(y)) {
-      throw new Error(
-        "Cada par debe contener dos números separados por un espacio.",
-      );
-    }
     return { x, y };
   });
-
-  if (pairs.length < 2) {
-    throw new Error(
-      "Se necesitan al menos dos puntos para realizar una regresión lineal.",
-    );
-  }
-
   const n = pairs.length;
   const sumX = pairs.reduce((acc, point) => acc + point.x, 0);
   const sumY = pairs.reduce((acc, point) => acc + point.y, 0);
