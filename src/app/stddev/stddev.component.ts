@@ -1,15 +1,19 @@
 import { Component, OnInit } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 import { RouterOutlet } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import cols from "./data.json";
+import { calculateStdDev } from "./stddev";
 @Component({
   selector: "app-stddev",
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, FormsModule],
   templateUrl: "./stddev.component.html",
   styleUrl: "./stddev.component.css",
 })
 export class StddevComponent implements OnInit {
+  numbers: string = "";
+  result: number = 0;
   columna1: number[] = cols.columna1;
   columna2: number[] = cols.columna2;
   mediaColumna1: number = 0;
@@ -56,9 +60,12 @@ export class StddevComponent implements OnInit {
       this.stddevColumna2 = this.redondearNumero(this.stddevColumna2, 2);
     }
   }
-
   redondearNumero(num: number, decimales: number): number {
     const factor = Math.pow(10, decimales);
     return Math.round(num * factor) / factor;
+  }
+
+  stddev() {
+    this.result = calculateStdDev(this.numbers);
   }
 }
