@@ -1,12 +1,20 @@
 import { Component } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 import { sumX, sumXX, sumY, sumXY } from "../common/calculate";
 import data_test1 from "../../assets/test1.json";
+import { linearRegression } from "./linear-regresion";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "app-linear-regression",
+  standalone: true,
+  imports: [FormsModule, CommonModule],
   templateUrl: "./linear-regression.component.html",
 })
 export class LinearRegresionComponent {
+  points = "";
+  result: { slope: number; intercept: number } = { slope: 0, intercept: 0 };
+
   calcularlinearRegression(
     x: number[],
     y: number[],
@@ -27,5 +35,9 @@ export class LinearRegresionComponent {
   }
   predict(B0: number, B1: number, x: number) {
     return B0 + B1 * x;
+  }
+  linearRegression() {
+    this.result = linearRegression(this.points);
+    console.log(this.result);
   }
 }
