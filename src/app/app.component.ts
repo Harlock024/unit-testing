@@ -8,6 +8,4 @@ import { UiComponent } from "./ui/ui.component";
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
 })
-export class AppComponent {
-  title = "unit-testing";
-}
+export class AppComponent {}
