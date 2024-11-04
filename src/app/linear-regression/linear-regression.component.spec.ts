@@ -57,7 +57,6 @@ describe("Linear regresion test suite using data_test3", () => {
     expect(parseFloat(yk.toFixed(3))).toBe(528.429);
   });
 });
-
 describe("Linear regresion test suite using data_test4", () => {
   const component = new LinearRegresionComponent();
   const { B0, B1 } = component.calcularlinearRegression(
@@ -73,5 +72,19 @@ describe("Linear regresion test suite using data_test4", () => {
   it("Should return yk=49.4994 with the dataset Data_Test4 if x=386", () => {
     const yk = component.predict(B0, B1, x);
     expect(parseFloat(yk.toFixed(4))).toBe(49.4994);
+  });
+});
+describe("Call to frond method", () => {
+  const component = new LinearRegresionComponent();
+  it("should to call linearregresion method", () => {
+    // Arrange
+    let result: { slope: number; intercept: number };
+    component.points = "1 2, 1 3, 1 4, 1 5, 1 6, 1 7, 1 8, 1 9, 2 0, 2 1";
+
+    // Act
+    component.linearRegression();
+    result = component.result;
+    // Assert
+    expect(result.slope).toBe(-5), expect(result.intercept).toBe(10.5);
   });
 });
