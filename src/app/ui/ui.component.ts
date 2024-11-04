@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { RouterOutlet, RouterLink } from "@angular/router";
+
+import { MediaComponent } from "../media/media.component";
+import { media } from "../media/media";
 
 @Component({
-  selector: 'app-ui',
+  selector: "app-ui",
   standalone: true,
-  imports: [],
-  templateUrl: './ui.component.html',
-  styleUrl: './ui.component.css'
+  imports: [MediaComponent, RouterOutlet, RouterLink],
+  templateUrl: "./ui.component.html",
+  styleUrl: "./ui.component.css",
 })
-export class UiComponent {
-
-}
+export class UiComponent {}

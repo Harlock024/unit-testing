@@ -1,3 +1,12 @@
-import { Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
-export const routes: Routes = [];
+import { MediaComponent } from "./media/media.component";
+
+export const routes: Routes = [{ path: "media", component: MediaComponent }];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
