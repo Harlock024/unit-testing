@@ -1,31 +1,13 @@
-<section class="flex flex-col justify-center items-center p-10">
-  <table class="">
-    <tr>
-      <th>Columna 1</th>
-      <th>Columna 2</th>
-    </tr>
-    <tr>
-      <th>Estimate Proxy size</th>
-      <th>Develop Hours</th>
-    </tr>
-
-    <tr *ngFor="let valor of columna1; let i = index">
-      <td>{{ valor }}</td>
-      <td>{{ columna2[i] }}</td>
-    </tr>
-  </table>
-  <div class="flex flex-row">
-    <div class="flex flex-col">
-      <h3>Media Expected</h3>
-      <h3>Test</h3>
-      <div class="flex flex-row space-x-10">
-        <div>table 1: Columna 1</div>
-        <div>{{ mediaColumna1 }}</div>
-      </div>
-      <div class="flex flex-row space-x-10">
-        <div>table 1: Columna 2</div>
-        <div>{{ mediaColumna2 }}</div>
-      </div>
-    </div>
+<section class="flex flex-col">
+  <div>
+    <input
+      class="text-black"
+      type="text"
+      name="media"
+      placeholder="ej: 1,2,3,4,5"
+      [(ngModel)]="numbers"
+    />
+    <button (click)="media()">Calcular Media</button>
   </div>
+  <div>{{ result }}</div>
 </section>

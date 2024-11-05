@@ -1,4 +1,5 @@
 import { SimpsonRule } from "../common/simpson_rule";
+import { SimpsonComponent } from "./simpson.component";
 describe("SimpsonRule", () => {
   it("should return 16.0 for f(x) = 2x, x0 = 0, x1 = 4, numSeg = 4, ERROR = 0.0001", () => {
     const result = SimpsonRule.simpson(0, 4, 4, 0.0001, SimpsonRule.fx_2x);
@@ -28,5 +29,20 @@ describe("SimpsonRule", () => {
   it("should return 0.49500 for x0=0, x1=2.750, dof=30, error=0.00001", () => {
     const result = SimpsonRule.TStudent(2.75, 10, 30, 0.00001);
     expect(result).toBeCloseTo(0.495, 4);
+  });
+
+  it("should call simpson method", () => {
+    const component = new SimpsonComponent();
+    // Arrange
+    let result: number | null = null;
+    component.x0 = 0;
+    component.x1 = 4;
+    component.numSeg = 4;
+    component.error = 0.0001;
+    // Act
+    component.simpson();
+    result = component.result;
+    console.log(result);
+    expect(result).toBeCloseTo(16.0, 2);
   });
 });

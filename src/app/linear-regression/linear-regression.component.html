@@ -1,1 +1,16 @@
-<p>linear-regression works!</p>
+<section class="flex flex-col">
+  <div>
+    <input
+      class="text-black"
+      type="text"
+      name="regression"
+      placeholder="ej: 1 2, 2 3, 3 5, 4 7"
+      [(ngModel)]="points"
+    />
+    <button (click)="linearRegression()">Calcular regresión</button>
+  </div>
+  <div *ngIf="result">
+    Pendiente (slope): {{ result.slope }} <br />
+    Intersección (intercept): {{ result.intercept }}
+  </div>
+</section>

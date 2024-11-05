@@ -30,7 +30,14 @@ describe("StddevComponent", () => {
 
     expect(component.stddevColumna2).toBe(expectedStddevColumna2);
   });
-  it("should create", () => {
-    expect(component).toBeTruthy();
+  it("should call stddev method", () => {
+    // Arrange
+    let result = 0;
+    component.numbers = "12, 15, 8, 20, 5, 18, 10";
+    // Act
+    component.stddev();
+    result = component.result;
+    // Assert
+    expect(parseFloat(result.toFixed(0))).toBe(5);
   });
 });

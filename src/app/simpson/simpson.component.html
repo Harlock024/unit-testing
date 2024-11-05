@@ -1,0 +1,34 @@
+<section class="flex flex-col">
+  <div>
+    <input
+      type="number"
+      name="x0"
+      placeholder="Valor inicial (x0)"
+      [(ngModel)]="x0"
+      class="text-black"
+    />
+    <input
+      type="number"
+      name="x1"
+      placeholder="Valor final (x1)"
+      [(ngModel)]="x1"
+      class="text-black"
+    />
+    <input
+      type="number"
+      name="numSeg"
+      placeholder="Número de segmentos"
+      [(ngModel)]="numSeg"
+      class="text-black"
+    />
+    <input
+      type="number"
+      name="error"
+      placeholder="Error tolerado"
+      [(ngModel)]="error"
+      class="text-black"
+    />
+    <button (click)="simpson()">Calcular Integral</button>
+  </div>
+  <div *ngIf="result !== null">Resultado de la Integral: {{ result }}</div>
+</section>
