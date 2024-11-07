@@ -7,7 +7,7 @@ import data_test4 from "../../assets/test4.json";
 const x = 386;
 describe(" linear regresion test suite using data_test1", () => {
   const component = new LinearRegresionComponent();
-  const { B0, B1 } = component.calcularlinearRegression(
+  const { B0, B1 } = component.calcularLinearRegression(
     data_test1.proxy_size,
     data_test1.actual_added,
   );
@@ -22,10 +22,9 @@ describe(" linear regresion test suite using data_test1", () => {
     expect(parseFloat(yk.toFixed(3))).toBe(644.429);
   });
 });
-
 describe(" linear regresion test suite using data_test2", () => {
   const component = new LinearRegresionComponent();
-  const { B0, B1 } = component.calcularlinearRegression(
+  const { B0, B1 } = component.calcularLinearRegression(
     data_test2.proxySize,
     data_test2.actualDevelop,
   );
@@ -42,7 +41,7 @@ describe(" linear regresion test suite using data_test2", () => {
 });
 describe("Linear regresion test suite using data_test3", () => {
   const component = new LinearRegresionComponent();
-  const { B0, B1 } = component.calcularlinearRegression(
+  const { B0, B1 } = component.calcularLinearRegression(
     data_test3.planAdded,
     data_test3.actualAdded,
   );
@@ -59,7 +58,7 @@ describe("Linear regresion test suite using data_test3", () => {
 });
 describe("Linear regresion test suite using data_test4", () => {
   const component = new LinearRegresionComponent();
-  const { B0, B1 } = component.calcularlinearRegression(
+  const { B0, B1 } = component.calcularLinearRegression(
     data_test4.planAdded,
     data_test4.actualDevelop,
   );
@@ -79,12 +78,14 @@ describe("Call to frond method", () => {
   it("should to call linearregresion method", () => {
     // Arrange
     let result: { slope: number; intercept: number };
-    component.points = "1 2, 1 3, 1 4, 1 5, 1 6, 1 7, 1 8, 1 9, 2 0, 2 1";
-
+    component.valueX = "130, 650, 99, 150, 128, 302, 95, 945, 368, 961";
+    component.valueY = "186, 699, 132, 272, 291, 331, 199, 1890, 788, 1601";
     // Act
     component.linearRegression();
     result = component.result;
+    console.log(result);
     // Assert
-    expect(result.slope).toBe(-5), expect(result.intercept).toBe(10.5);
+    expect(result.slope).toBe(1.727932426206986),
+      expect(parseInt(result.intercept.toFixed(3))).toBe(-22);
   });
 });
