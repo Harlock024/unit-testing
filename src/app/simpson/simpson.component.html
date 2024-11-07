@@ -1,34 +1,57 @@
-<section class="flex flex-col">
+<section class="grid grid-cols-2 gap-5">
+  <div *ngIf="selectedFunction !== 'TStudent'">
+    <input
+      class="text-black"
+      type="number"
+      placeholder="Límite inferior (x0)"
+      [(ngModel)]="x0"
+    />
+  </div>
+  <div *ngIf="selectedFunction === 'TStudent'">
+    <label> Límite inferior (x0) =0 </label>
+  </div>
   <div>
     <input
-      type="number"
-      name="x0"
-      placeholder="Valor inicial (x0)"
-      [(ngModel)]="x0"
       class="text-black"
-    />
-    <input
       type="number"
-      name="x1"
-      placeholder="Valor final (x1)"
+      placeholder="Límite superior (x1)"
       [(ngModel)]="x1"
-      class="text-black"
     />
+  </div>
+  <div>
     <input
+      class="text-black"
       type="number"
-      name="numSeg"
       placeholder="Número de segmentos"
       [(ngModel)]="numSeg"
-      class="text-black"
     />
-    <input
-      type="number"
-      name="error"
-      placeholder="Error tolerado"
-      [(ngModel)]="error"
-      class="text-black"
-    />
-    <button (click)="simpson()">Calcular Integral</button>
   </div>
-  <div *ngIf="result !== null">Resultado de la Integral: {{ result }}</div>
+  <div>
+    <input
+      class="text-black"
+      type="number"
+      placeholder="Error permitido"
+      [(ngModel)]="error"
+    />
+  </div>
+
+  <div *ngIf="selectedFunction === 'TStudent'">
+    <input
+      class="text-black"
+      type="number"
+      placeholder="Grados de libertad (dof)"
+      [(ngModel)]="dof"
+    />
+  </div>
 </section>
+<div class="text-black mt-5">
+  <select [(ngModel)]="selectedFunction">
+    <option value="fx_2x">f(x) = 2x</option>
+    <option value="fx_x2">f(x) = x^2</option>
+    <option value="fx_1_x">f(x) = 1/x</option>
+    <option value="TStudent">Distribución t</option>
+  </select>
+</div>
+<button (click)="calcular()">Calcular Integral</button>
+
+<div *ngIf="result !== null">Resultado de la integral: {{ result }}</div>
