@@ -3,14 +3,31 @@
     <input
       class="text-black"
       type="text"
-      name="regression"
-      placeholder="ej: 1 2, 2 3, 3 5, 4 7"
-      [(ngModel)]="points"
+      placeholder="Valores de X (ej: 130, 650, 99, ...)"
+      [(ngModel)]="valueX"
     />
-    <button (click)="linearRegression()">Calcular regresión</button>
   </div>
+  <div>
+    <input
+      class="text-black"
+      type="text"
+      placeholder="Valores de Y (ej: 186, 699, 132, ...)"
+      [(ngModel)]="valueY"
+    />
+  </div>
+  <div>
+    <input
+      class="text-black"
+      type="number"
+      placeholder="Valor de X para predecir Y (ej: 200)"
+      [(ngModel)]="xToPredict"
+    />
+  </div>
+  <button (click)="linearRegression()">Calcular regresión</button>
+
   <div *ngIf="result">
     Pendiente (slope): {{ result.slope }} <br />
-    Intersección (intercept): {{ result.intercept }}
+    Intersección (intercept): {{ result.intercept }} <br />
+    Predicción para x = {{ xToPredict }}: {{ predictedY }}
   </div>
 </section>

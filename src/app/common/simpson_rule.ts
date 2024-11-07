@@ -48,7 +48,6 @@ export class SimpsonRule {
       return result * sqrtPi;
     }
   }
-
   static TStudent_FirstPart(x: number, dof: number): number {
     const base = 1 + Math.pow(x, 2) / dof;
     const exponente = -(dof + 1) / 2;
@@ -66,7 +65,6 @@ export class SimpsonRule {
     const resultado = gammaNumerador / (divisor * gammaDenominador);
     return resultado;
   }
-
   static TStudent_ThirdPart(x1: number, x2: number): number {
     const resultado = x1 * x2;
     return resultado;
@@ -88,11 +86,9 @@ export class SimpsonRule {
     let w = x / lon;
     let suma = 0;
     let resul_check = 0;
-
     do {
       w = x / lon;
       suma = 0;
-
       for (let i = 0; i <= lon; i++) {
         let xi = w * i;
         let firstPart = this.TStudent_FirstPart(xi, dof);
@@ -108,7 +104,6 @@ export class SimpsonRule {
       if (count >= 2) {
         resul_check = Math.abs(check_e - suma);
       }
-
       check_e = suma;
       count += 1;
     } while (count < 3 || resul_check > e);
